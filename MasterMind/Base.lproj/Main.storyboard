@@ -18,13 +18,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="IqA-Wz-eFs">
-                                <rect key="frame" x="127" y="61" width="121" height="29"/>
+                                <rect key="frame" x="132" y="61" width="111" height="29"/>
                                 <segments>
-                                    <segment title="First"/>
-                                    <segment title="Second"/>
+                                    <segment title="Jugar"/>
+                                    <segment title="Probar"/>
                                 </segments>
+                                <connections>
+                                    <action selector="displayOrNotGuess:" destination="BYZ-38-t0r" eventType="valueChanged" id="Bn2-d6-Ojr"/>
+                                </connections>
                             </segmentedControl>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wa6-6K-B7j">
+                            <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wa6-6K-B7j">
                                 <rect key="frame" x="34" y="101" width="311" height="92"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jNw-Ft-iJT">
@@ -51,19 +54,15 @@
                                 <subviews>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qBc-ds-faT">
                                         <rect key="frame" x="23" y="20" width="55" height="55"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="neU-tU-CZj">
                                         <rect key="frame" x="93" y="20" width="55" height="55"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TqS-Ym-lIP">
                                         <rect key="frame" x="233" y="20" width="55" height="55"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GVF-LR-D3a">
                                         <rect key="frame" x="163" y="20" width="55" height="55"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" red="0.92337557219999999" green="0.93048023400000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -106,6 +105,9 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OWR-UV-wOj">
                                 <rect key="frame" x="243" y="517" width="46" height="30"/>
                                 <state key="normal" title="Probar"/>
+                                <connections>
+                                    <action selector="checkGuess:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xqY-oM-5oo"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Adivina:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oXs-ns-vKW">
                                 <rect key="frame" x="59" y="222" width="61" height="21"/>
@@ -122,10 +124,16 @@
                         <outlet property="btnGuessFourth" destination="kdT-3P-KBw" id="FXk-YU-CbI"/>
                         <outlet property="btnGuessSecond" destination="7Rv-19-BEv" id="Ri0-eP-IUr"/>
                         <outlet property="btnGuessThird" destination="0Cl-Gd-7un" id="nNX-PR-fwx"/>
+                        <outlet property="segCtrlPlay" destination="IqA-Wz-eFs" id="uJQ-VI-rns"/>
                         <outlet property="viewGuessFirst" destination="jNw-Ft-iJT" id="uWK-vc-Yra"/>
                         <outlet property="viewGuessFourth" destination="0hV-V7-YP2" id="y6N-ww-Awu"/>
                         <outlet property="viewGuessSecond" destination="uDA-Q8-Sfd" id="Q3f-87-fnF"/>
                         <outlet property="viewGuessThird" destination="6MX-8O-isL" id="YVi-Rd-Qe6"/>
+                        <outlet property="viewGuessWrapper" destination="Wa6-6K-B7j" id="fh8-mq-8rd"/>
+                        <outlet property="viewHintFirst" destination="qBc-ds-faT" id="vfl-wX-DUJ"/>
+                        <outlet property="viewHintFourth" destination="TqS-Ym-lIP" id="Rzm-ED-23j"/>
+                        <outlet property="viewHintSecond" destination="neU-tU-CZj" id="xRn-ZH-muU"/>
+                        <outlet property="viewHintThird" destination="GVF-LR-D3a" id="jfQ-T4-wMD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
