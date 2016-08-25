@@ -99,6 +99,9 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Suf-3y-ypO">
                                 <rect key="frame" x="64" y="517" width="41" height="30"/>
                                 <state key="normal" title="Iniciar"/>
+                                <connections>
+                                    <action selector="resetGame:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aA2-6i-uw9"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OWR-UV-wOj">
                                 <rect key="frame" x="243" y="517" width="46" height="30"/>
@@ -114,6 +117,16 @@
                         <color key="backgroundColor" red="0.92337557223230782" green="0.93048023396727209" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="btnGuessFirst" destination="z85-nk-1yw" id="F7J-S7-NRb"/>
+                        <outlet property="btnGuessFourth" destination="kdT-3P-KBw" id="FXk-YU-CbI"/>
+                        <outlet property="btnGuessSecond" destination="7Rv-19-BEv" id="Ri0-eP-IUr"/>
+                        <outlet property="btnGuessThird" destination="0Cl-Gd-7un" id="nNX-PR-fwx"/>
+                        <outlet property="viewGuessFirst" destination="jNw-Ft-iJT" id="uWK-vc-Yra"/>
+                        <outlet property="viewGuessFourth" destination="0hV-V7-YP2" id="y6N-ww-Awu"/>
+                        <outlet property="viewGuessSecond" destination="uDA-Q8-Sfd" id="Q3f-87-fnF"/>
+                        <outlet property="viewGuessThird" destination="6MX-8O-isL" id="YVi-Rd-Qe6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
