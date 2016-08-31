@@ -49,6 +49,9 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    // MARK: - Helper functions
+    
+    // Rests the answer array and sets the color to the views.
     func resetCompleteGuess() {
         arrGuessColors = []
         randomizeGuess()
@@ -56,9 +59,9 @@ class ViewController: UIViewController {
         viewGuessSecond.backgroundColor = arrGuessColors[1]
         viewGuessThird.backgroundColor = arrGuessColors[2]
         viewGuessFourth.backgroundColor = arrGuessColors[3]
-
     }
     
+    // Generates the different colors using randomness.
     func randomizeGuess() {
         while arrGuessColors.count < 4 {
             let randomNumber = Int(arc4random_uniform(6) + 1)
@@ -91,6 +94,7 @@ class ViewController: UIViewController {
         }
     }
     
+    // Compares the guess with the actual result and sets the hints (red and white squares)
     func setHints(correctPosAndColor: Int, correctColor: Int) {
         var arrHintColors: [UIColor] = []
         var indexPosAndColor = correctPosAndColor
@@ -110,13 +114,14 @@ class ViewController: UIViewController {
         viewHintSecond.backgroundColor = arrHintColors[1]
         viewHintThird.backgroundColor = arrHintColors[2]
         viewHintFourth.backgroundColor = arrHintColors[3]
-        if (correctPosAndColor == 4) {
+        if correctPosAndColor == 4 {
             let alert = UIAlertController(title: "Ganaste!", message: "Felicidades! Ganaste en el intento \(turnCounter)", preferredStyle: .Alert)
             alert.addAction(UIAlertAction(title: "OK", style: .Cancel, handler: nil))
             presentViewController(alert, animated: true, completion: nil)
         }
     }
     
+    // It resets the counter, the answer, and color of the buttons and hints.
     @IBAction func resetGame(sender: UIButton) {
         turnCounter = 0
         if segCtrlPlay.selectedSegmentIndex == 1 {
@@ -134,6 +139,7 @@ class ViewController: UIViewController {
         viewHintFourth.backgroundColor = UIColor.clearColor()
     }
 
+    // A helper function that changes the color of the button.
     @IBAction func changeColor(sender: UIButton) {
         let colorButton = sender.backgroundColor
         if colorButton == colorGreen {
@@ -151,10 +157,11 @@ class ViewController: UIViewController {
         }
     }
 
+    // Firstly, it checks that tere are not repetaed color in the guess. Then it add 1 to the turn counter and sets the hints.
     @IBAction func checkGuess(sender: UIButton) {
         var arrTryGuess: [UIColor] = [btnGuessFirst.backgroundColor!, btnGuessSecond.backgroundColor!, btnGuessThird.backgroundColor!, btnGuessFourth.backgroundColor!]
         let duplicateColors = Array(Set(arrTryGuess.filter({ (i:UIColor) in arrTryGuess.filter({$0 == i}).count == 1})))
-        if (duplicateColors.count != arrTryGuess.count) {
+        if duplicateColors.count != arrTryGuess.count {
             let alert = UIAlertController(title: "Cuidado", message: "No debe de haber colores repetidos.", preferredStyle: .Alert)
             alert.addAction(UIAlertAction(title: "OK", style: .Cancel, handler: nil))
             presentViewController(alert, animated: true, completion: nil)
@@ -175,6 +182,7 @@ class ViewController: UIViewController {
         }
     }
     
+    // Displays the correct answer or hides it.
     @IBAction func displayOrNotGuess(sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
             case 0: viewGuessWrapper.hidden = true
